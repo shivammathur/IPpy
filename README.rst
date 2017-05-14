@@ -37,7 +37,7 @@ Install
 
 ::
 
-    pip install ippy
+    $ pip install ippy
 
 Usage
 -----
@@ -61,3 +61,18 @@ Usage
     # Get Results
     output = ippt.result()
     print(output)
+
+Tests
+-----
+
+To run the tests, first install tox
+
+::
+
+    $ pip install tox
+
+then run tox from the project root directory.
+
+::
+
+    $ tox
