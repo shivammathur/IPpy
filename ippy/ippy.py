@@ -40,6 +40,18 @@ class Ippy(object):
         self._accessible = []
         self._not_accessible = []
 
+    @property
+    def get_results(self):
+        return self._results
+
+    @property
+    def get_accessible(self):
+        return self._accessible
+
+    @property
+    def get_not_accessible(self):
+        return self._not_accessible
+
     def set_config(self, verbose_mode=True, output_mode='json', num_workers=4):
 
         """ Function to set the configuration of IPpy
@@ -63,7 +75,7 @@ class Ippy(object):
     @staticmethod
     def get_ping_args():
         """
-        :return:
+        :return ping_args: ping command with arguments
         """
         plat = platform.system()
 
