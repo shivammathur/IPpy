@@ -6,3 +6,8 @@ History
 ------------------
 
 * First release on PyPI.
+
+0.1.1 (2017-05-14)
+------------------
+
+* Add readme.rst

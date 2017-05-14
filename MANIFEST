@@ -3,6 +3,7 @@ AUTHORS.rst
 CONTRIBUTING.rst
 HISTORY.rst
 LICENSE
+README.rst
 setup.cfg
 setup.py
 docs\Makefile
@@ -17,7 +18,6 @@ docs\make.bat
 docs\readme.rst
 docs\usage.rst
 ippy\__init__.py
-ippy\cli.py
 ippy\ippy.py
 tests\__init__.py
 tests\test_ippy.py

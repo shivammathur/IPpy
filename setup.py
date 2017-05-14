@@ -19,13 +19,13 @@ test_requirements = [
 
 setup(
     name='ippy',
-    version='0.1.0',
+    version='0.1.1',
     description="Parallel testing of IP addresses and domains in python.",
     long_description=readme + '\n\n' + history,
     author="Shivam Mathur",
     author_email='shivam_jpr@hotmail.com',
     url='https://github.com/shivammathur/ippy',
-    download_url = 'https://github.com/shivammathur/ippy/archive/0.1.0.tar.gz',
+    download_url = 'https://github.com/shivammathur/ippy/archive/0.1.1.tar.gz',
     packages=[
         'ippy',
     ],
@@ -37,7 +37,7 @@ setup(
     zip_safe=False,
     keywords='ippy',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -45,6 +45,9 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Topic :: Software Development :: Libraries'
+        'Software Development :: Libraries :: Python Modules'
+        'System :: Networking'
     ],
     test_suite='tests',
     tests_require=test_requirements
