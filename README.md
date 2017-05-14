@@ -17,7 +17,7 @@ Reads IP addresses and domains from a CSV file and gives two lists of accessible
 ## Support
 - Currently Windows and Linux are supported.
 - Supports both IPv4 and IPv6 IPs, and domain names.
-```
+```csv
 # Examples
 127.0.0.1
 ::1
@@ -30,7 +30,7 @@ pip install ippy
 ```
 
 ## Usage
-```
+```python
 # Create IPpy instance
 ippt = ippy.Ippy()
 
