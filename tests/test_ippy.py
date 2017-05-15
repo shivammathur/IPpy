@@ -10,7 +10,6 @@ Tests for `ippy` module.
 
 import pytest
 from ippy import ippy
-import platform
 import sys
 import os
 import json
@@ -19,8 +18,6 @@ from csv import reader
 
 
 def test_config():
-    """Test set_config function in ippy.
-    """
     ippt = ippy.Ippy()
     ippt.set_config(verbose_mode=False, output_mode='csv', num_workers=10)
 
@@ -31,23 +28,22 @@ def test_config():
 
 def test_set_file():
     ippt = ippy.Ippy()
+    pytest.raises(Exception, "ippt.set_file()")
     ippt.set_file('testfile')
 
     assert ippt.file == 'testfile'
 
 
 def test_ping_args():
-    plat = platform.system()
-
     ippt = ippy.Ippy()
-    ping_args = ippt.get_ping_args()
 
-    if plat == "Windows":
-        assert ping_args == ["ping", "-n", "2", "-l", "1", "-w", "2000"]
-    elif plat == "Linux":
-        assert ping_args == ["ping", "-c", "2", "-l", "1", "-s", "1", "-W", "2"]
-    else:
-        pytest.raises(ValueError)
+    ping_args = ippt.get_ping_args("Windows")
+    assert ping_args == ["ping", "-n", "2", "-l", "1", "-w", "2000"]
+
+    ping_args = ippt.get_ping_args("Linux")
+    assert ping_args == ["ping", "-c", "2", "-l", "1", "-s", "1", "-W", "2"]
+
+    pytest.raises(ValueError, "ippt.get_ping_args('Test')")
 
 
 def test_filepath():
@@ -62,7 +58,7 @@ def test_filepath():
 
 def test_run():
     ippt = ippy.Ippy()
-    ippt.set_config(False, 'csv', 10)
+    ippt.set_config(True, 'csv', 10)
     ippt.set_file(file='ip_list.csv')
     ippt.run()
 
@@ -71,17 +67,21 @@ def test_run():
     assert property(ippt.get_results) is not None
 
 
-def test_result():
+def test_empty_result():
     ippt = ippy.Ippy()
     ippt.set_config(False, 'test', 10)
     ippt.set_file(file='ip_list.csv')
     ippt.run()
     pytest.raises(ValueError, "ippt.result()")
 
+def test_json_result():
+    ippt = ippy.Ippy()
     ippt.set_config(False, 'json', 10)
     result = ippt.result()
     assert json.loads(result) is not None
 
+def test_csv_result():
+    ippt = ippy.Ippy()
     ippt.set_config(False, 'csv', 10)
     result = ippt.result()
     my_result = StringIO(result)

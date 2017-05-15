@@ -73,11 +73,15 @@ class Ippy(object):
             self.file = file
 
     @staticmethod
-    def get_ping_args():
+    def get_ping_args(platform_os=None):
         """
         :return ping_args: ping command with arguments
         """
+
         plat = platform.system()
+
+        if platform_os is not None:
+            plat = platform_os
 
         # The arguments for the 'ping', excluding the address.
         if plat == "Windows":
@@ -166,9 +170,6 @@ class Ippy(object):
                         self._not_accessible.append(result[0]['ip'])
                     else:
                         self._accessible.append(result[0]['ip'])
-                else:
-                    if self.verbose:
-                        print(result[1].decode("utf-8"))
                 self._results.append(result)
 
         # Wait for all the workers to terminate.
@@ -184,10 +185,7 @@ class Ippy(object):
             result = dumps(result_dict, indent=4)
         elif self.output == 'csv':
             result = StringIO()
-            my_writer = writer(result)
-            d = [self._accessible, self._not_accessible]
-            for x in zip_longest(*d):
-                my_writer.writerow(x)
+            writer(result)
             result = result.getvalue().strip('\r\n')
             result = 'Accessible,Not Accessible\n' + result
         else:
