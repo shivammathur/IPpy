@@ -1,3 +1,10 @@
+[![PyPI version](https://badge.fury.io/py/ippy.svg)](https://pypi.python.org/pypi/ippy)
+[![Build Status](https://travis-ci.org/shivammathur/IPpy.svg?branch=master)](https://travis-ci.org/shivammathur/countrycity)
+[![Code Climate](https://codeclimate.com/github/shivammathur/IPpy/badges/gpa.svg)](https://codeclimate.com/github/shivammathur/IPpy)
+[![Coverage Status](https://coveralls.io/repos/github/shivammathur/IPpy/badge.svg?branch=master)](https://coveralls.io/github/shivammathur/IPpy?branch=master)
+[![codecov](https://codecov.io/gh/shivammathur/IPpy/branch/master/graph/badge.svg)](https://codecov.io/gh/shivammathur/IPpy)
+[![License](https://img.shields.io/badge/license-MIT-428f7e.svg)](https://pypi.python.org/pypi/ippy)
+
 <img src="https://shivammathur.com/IPpy.png" align="right" width="250">
 
 # IPpy
