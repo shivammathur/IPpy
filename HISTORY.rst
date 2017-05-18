@@ -12,12 +12,13 @@ History
 
 * Add readme.rst
 
-0.2.0 (2017-05-14)
+0.2.3 (2017-05-14)
 ------------------
 
 * Add unittests
+* Improve test coverage
 
-0.2.1 (2017-05-14)
+0.3.0 (2017-05-14)
 ------------------
 
-* Improve test coverage
+* Add python 2 backward compatibility

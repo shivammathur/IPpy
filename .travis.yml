@@ -4,6 +4,8 @@
 language: python
 matrix:
     include:
+        - python: 2.7
+          env: TOXENV=py27
         - python: 3.3
           env: TOXENV=py33
         - python: 3.4
@@ -14,14 +16,14 @@ matrix:
           env: TOXENV=py36
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: 
+install:
   - pip install -U tox
   - pip install tox codecov coveralls
   - pip install -r requirements.txt
   - pip install pytest-cov
 
 # command to run tests, e.g. python setup.py test
-script: 
+script:
   - py.test --cov=ippy tests/
   - tox -e ${TOXENV}
 

@@ -1,23 +1,27 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
 Python script to check if IP address and domains are accessible or not.
 .. codeauthor:: Shivam Mathur <shivam_jpr@hotmail.com>
 """
-
+from __future__ import print_function
+from __future__ import unicode_literals
+from __future__ import division
+from __future__ import absolute_import
+from future.standard_library import install_aliases
 from io import StringIO
 from json import dumps
 from csv import writer
-from itertools import zip_longest
+from future.moves.itertools import zip_longest
 
 import sys
 import os
 import platform
 import subprocess
 import threading
-import queue
 import pingparsing
+import queue
 
 
 class Ippy(object):
@@ -185,10 +189,16 @@ class Ippy(object):
             result = dumps(result_dict, indent=4)
         elif self.output == 'csv':
             result = StringIO()
-            writer(result)
+            ippy_writer = writer(result)
+            d = [self._accessible, self._not_accessible]
+            for x in zip_longest(*d):
+                ippy_writer.writerow(x)
             result = result.getvalue().strip('\r\n')
             result = 'Accessible,Not Accessible\n' + result
         else:
             raise ValueError("Unknown output mode")
 
         return result
+
+if __name__ == "__main__":
+    install_aliases()

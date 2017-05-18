@@ -8,7 +8,7 @@ and inaccessible ones.
 About
 -----
 
--  Written in Python 3
+-  Compatible with both Python 2 and 3.
 -  Testing of IPs and domains is done in parallel.
 -  By default there are 4 Workers.
 -  All Workers work on an input Queue and a output Queue.

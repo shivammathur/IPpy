@@ -12,8 +12,8 @@ Parallel testing of IP addresses and domains in python.
 Reads IP addresses and domains from a CSV file and gives two lists of accessible and inaccessible ones.
 
 ## About
-- Written in Python 3
-- Testing of IPs and domains is done in parallel. 
+- Compatible with both Python 2 and 3.
+- Testing of IPs and domains is done in parallel.
 - By default there are 4 Workers.
 - All Workers work on an input Queue and a output Queue.
 

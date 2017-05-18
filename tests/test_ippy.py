@@ -7,14 +7,20 @@ test_ippy
 
 Tests for `ippy` module.
 """
+from __future__ import unicode_literals
+from __future__ import print_function
+from __future__ import division
+from __future__ import absolute_import
 
-import pytest
+from future.standard_library import install_aliases
 from ippy import ippy
+import pytest
 import sys
 import os
 import json
 from io import StringIO
 from csv import reader
+install_aliases()
 
 
 def test_config():
@@ -43,7 +49,8 @@ def test_ping_args():
     ping_args = ippt.get_ping_args("Linux")
     assert ping_args == ["ping", "-c", "2", "-l", "1", "-s", "1", "-W", "2"]
 
-    pytest.raises(ValueError, "ippt.get_ping_args('Test')")
+    with pytest.raises(ValueError):
+        ippt.get_ping_args('Test')
 
 
 def test_filepath():
@@ -72,7 +79,9 @@ def test_empty_result():
     ippt.set_config(False, 'test', 10)
     ippt.set_file(file='ip_list.csv')
     ippt.run()
-    pytest.raises(ValueError, "ippt.result()")
+    with pytest.raises(ValueError):
+        ippt.result()
+
 
 def test_json_result():
     ippt = ippy.Ippy()
@@ -80,12 +89,13 @@ def test_json_result():
     result = ippt.result()
     assert json.loads(result) is not None
 
+
 def test_csv_result():
     ippt = ippy.Ippy()
     ippt.set_config(False, 'csv', 10)
     result = ippt.result()
     my_result = StringIO(result)
-    my_reader = reader(my_result, delimiter=',')
+    my_reader = reader(my_result, delimiter=str(','))
     csv_result = ''
     for row in my_reader:
         for cell in row:
