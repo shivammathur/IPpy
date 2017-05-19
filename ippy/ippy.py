@@ -10,7 +10,7 @@ from __future__ import unicode_literals
 from __future__ import division
 from __future__ import absolute_import
 from future.standard_library import install_aliases
-from io import StringIO
+from io import StringIO, BytesIO
 from json import dumps
 from csv import writer
 from future.moves.itertools import zip_longest
@@ -22,6 +22,7 @@ import subprocess
 import threading
 import pingparsing
 import queue
+install_aliases()
 
 
 class Ippy(object):
@@ -188,17 +189,14 @@ class Ippy(object):
             result_dict = {"Accessible": self._accessible, "Not Accessible": self._not_accessible}
             result = dumps(result_dict, indent=4)
         elif self.output == 'csv':
-            result = StringIO()
+            result = StringIO() if(sys.version_info >= (3, 0)) else BytesIO()
             ippy_writer = writer(result)
             d = [self._accessible, self._not_accessible]
             for x in zip_longest(*d):
                 ippy_writer.writerow(x)
-            result = result.getvalue().strip('\r\n')
+            result = str(result.getvalue()).strip('\r\n')
             result = 'Accessible,Not Accessible\n' + result
         else:
             raise ValueError("Unknown output mode")
 
         return result
-
-if __name__ == "__main__":
-    install_aliases()

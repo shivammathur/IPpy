@@ -12,13 +12,15 @@ History
 
 * Add readme.rst
 
-0.2.3 (2017-05-14)
+0.2.3 (2017-05-15)
 ------------------
 
 * Add unittests
 * Improve test coverage
 
-0.3.0 (2017-05-14)
+
+0.3.2 (2017-05-19)
 ------------------
 
 * Add python 2 backward compatibility
+* Fixed Python 2.7 csv support

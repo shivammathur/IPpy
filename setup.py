@@ -21,12 +21,12 @@ test_requirements = [
 
 setup(
     name='ippy',
-    version='0.3.0',
+    version='0.3.2',
     description="Parallel testing of IP addresses and domains in python.",
     author="Shivam Mathur",
     author_email='shivam_jpr@hotmail.com',
     url='https://github.com/shivammathur/ippy',
-    download_url='https://github.com/shivammathur/ippy/archive/0.3.0.tar.gz',
+    download_url='https://github.com/shivammathur/ippy/archive/0.3.2.tar.gz',
     packages=[
         'ippy',
     ],

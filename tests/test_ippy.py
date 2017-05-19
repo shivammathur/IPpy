@@ -34,7 +34,8 @@ def test_config():
 
 def test_set_file():
     ippt = ippy.Ippy()
-    pytest.raises(Exception, "ippt.set_file()")
+    with pytest.raises(Exception):
+        ippt.set_file()
     ippt.set_file('testfile')
 
     assert ippt.file == 'testfile'
@@ -55,7 +56,8 @@ def test_ping_args():
 
 def test_filepath():
     ippt = ippy.Ippy()
-    pytest.raises(Exception, "ippt.get_filepath()")
+    with pytest.raises(Exception):
+        ippt.get_filepath()
 
     ippt.set_file('testfile')
     file_path = ippt.get_filepath()
@@ -93,6 +95,8 @@ def test_json_result():
 def test_csv_result():
     ippt = ippy.Ippy()
     ippt.set_config(False, 'csv', 10)
+    ippt.set_file(file='ip_list.csv')
+    ippt.run()
     result = ippt.result()
     my_result = StringIO(result)
     my_reader = reader(my_result, delimiter=str(','))

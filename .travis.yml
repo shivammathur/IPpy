@@ -17,6 +17,7 @@ matrix:
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
+  - sudo apt-get install iputils-ping
   - pip install -U tox
   - pip install tox codecov coveralls
   - pip install -r requirements.txt
