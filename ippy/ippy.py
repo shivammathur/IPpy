@@ -93,6 +93,8 @@ class Ippy(object):
             ping_args = ["ping", "-n", "2", "-l", "1", "-w", "2000"]
         elif plat == "Linux":
             ping_args = ["ping", "-c", "2", "-l", "1", "-s", "1", "-W", "2"]
+        elif plat == "Darwin":
+            ping_args = ["ping", "-c", "2", "-l", "1", "-s", "1", "-W", "2000"]
         else:
             raise ValueError("Unknown platform")
 

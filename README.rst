@@ -22,7 +22,7 @@ Modes
 Support
 -------
 
--  Currently Windows and Linux are supported.
+-  Windows, Linux and macOS are supported.
 -  Supports both IPv4 and IPv6 IPs, and domain names.
 
    ::
@@ -45,21 +45,21 @@ Usage
 ::
 
     # Create IPpy instance
-    ippt = ippy.Ippy()
+    ippy_obj = ippy.Ippy()
 
     # Set config - verbose, output, num_workers
     # verbose - True or False
     # output - csv or json
-    ippt.set_config(True, 'csv', 4)
+    ippy_obj.set_config(True, 'csv', 4)
 
     # Set Input File
-    ippt.set_file(file='ip_list.csv')
+    ippy_obj.set_file(file='ip_list.csv')
 
     # Run IPpy
-    ippt.run()
+    ippy_obj.run()
 
     # Get Results
-    output = ippt.result()
+    output = ippy_obj.result()
     print(output)
 
 Tests

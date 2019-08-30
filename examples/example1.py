@@ -11,11 +11,11 @@ import sys
 
 
 def main():
-    ippt = ippy.Ippy()
-    ippt.set_config(True, 'csv', 4)
-    ippt.set_file(file='ip_list.csv')
-    ippt.run()
-    output = ippt.result()
+    ippy_obj = ippy.Ippy()
+    ippy_obj.set_config(True, 'csv', 4)
+    ippy_obj.set_file(file='ip_list.csv')
+    ippy_obj.run()
+    output = ippy_obj.result()
     print(output)
 
 if __name__ == "__main__":

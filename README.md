@@ -1,5 +1,5 @@
 [![PyPI version](https://badge.fury.io/py/ippy.svg)](https://pypi.python.org/pypi/ippy)
-[![Build Status](https://travis-ci.org/shivammathur/IPpy.svg?branch=master)](https://travis-ci.org/shivammathur/countrycity)
+[![Build Status](https://travis-ci.org/shivammathur/IPpy.svg?branch=master)](https://travis-ci.org/shivammathur/IPpy)
 [![Code Climate](https://codeclimate.com/github/shivammathur/IPpy/badges/gpa.svg)](https://codeclimate.com/github/shivammathur/IPpy)
 [![Coverage Status](https://coveralls.io/repos/github/shivammathur/IPpy/badge.svg?branch=master)](https://coveralls.io/github/shivammathur/IPpy?branch=master)
 [![codecov](https://codecov.io/gh/shivammathur/IPpy/branch/master/graph/badge.svg)](https://codecov.io/gh/shivammathur/IPpy)
@@ -22,7 +22,7 @@ Reads IP addresses and domains from a CSV file and gives two lists of accessible
 - output - `json` or `csv`
 
 ## Support
-- Currently Windows and Linux are supported.
+- Windows, Linux and macOS are supported.
 - Supports both IPv4 and IPv6 IPs, and domain names.
 ```csv
 # Examples
@@ -39,21 +39,21 @@ $ pip install ippy
 ## Usage
 ```python
 # Create IPpy instance
-ippt = ippy.Ippy()
+ippy_obj = ippy.Ippy()
 
 # Set config - verbose, output, num_workers
 # verbose - True or False
 # output - csv or json
-ippt.set_config(True, 'csv', 4)
+ippy_obj.set_config(True, 'csv', 4)
 
 # Set Input File
-ippt.set_file(file='ip_list.csv')
+ippy_obj.set_file(file='ip_list.csv')
 
 # Run IPpy
-ippt.run()
+ippy_obj.run()
 
 # Get Results
-output = ippt.result()
+output = ippy_obj.result()
 print(output)
 ```
 ## Tests

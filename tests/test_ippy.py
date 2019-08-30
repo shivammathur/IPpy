@@ -24,80 +24,83 @@ install_aliases()
 
 
 def test_config():
-    ippt = ippy.Ippy()
-    ippt.set_config(verbose_mode=False, output_mode='csv', num_workers=10)
+    ippy_obj = ippy.Ippy()
+    ippy_obj.set_config(verbose_mode=False, output_mode='csv', num_workers=10)
 
-    assert ippt.verbose is False
-    assert ippt.output == 'csv'
-    assert ippt.num_workers == 10
+    assert ippy_obj.verbose is False
+    assert ippy_obj.output == 'csv'
+    assert ippy_obj.num_workers == 10
 
 
 def test_set_file():
-    ippt = ippy.Ippy()
+    ippy_obj = ippy.Ippy()
     with pytest.raises(Exception):
-        ippt.set_file()
-    ippt.set_file('testfile')
+        ippy_obj.set_file()
+    ippy_obj.set_file('testfile')
 
-    assert ippt.file == 'testfile'
+    assert ippy_obj.file == 'testfile'
 
 
 def test_ping_args():
-    ippt = ippy.Ippy()
+    ippy_obj = ippy.Ippy()
 
-    ping_args = ippt.get_ping_args("Windows")
+    ping_args = ippy_obj.get_ping_args("Windows")
     assert ping_args == ["ping", "-n", "2", "-l", "1", "-w", "2000"]
 
-    ping_args = ippt.get_ping_args("Linux")
+    ping_args = ippy_obj.get_ping_args("Linux")
     assert ping_args == ["ping", "-c", "2", "-l", "1", "-s", "1", "-W", "2"]
 
+    ping_args = ippy_obj.get_ping_args("Darwin")
+    assert ping_args == ["ping", "-c", "2", "-l", "1", "-s", "1", "-W", "2000"]
+
     with pytest.raises(ValueError):
-        ippt.get_ping_args('Test')
+        ippy_obj.get_ping_args('Test')
 
 
 def test_filepath():
-    ippt = ippy.Ippy()
+    ippy_obj = ippy.Ippy()
     with pytest.raises(Exception):
-        ippt.get_filepath()
+        ippy_obj.get_filepath()
 
-    ippt.set_file('testfile')
-    file_path = ippt.get_filepath()
+    ippy_obj.set_file('testfile')
+    file_path = ippy_obj.get_filepath()
 
     assert file_path == os.path.join(sys.path[0], "testfile")
 
 
 def test_run():
-    ippt = ippy.Ippy()
-    ippt.set_config(True, 'csv', 10)
-    ippt.set_file(file='ip_list.csv')
-    ippt.run()
+    ippy_obj = ippy.Ippy()
+    ippy_obj.set_config(True, 'csv', 10)
+    ippy_obj.set_file(file='ip_list.csv')
+    ippy_obj.run()
 
-    assert property(ippt.get_accessible) is not None
-    assert property(ippt.get_not_accessible) is not None
-    assert property(ippt.get_results) is not None
+    assert property(ippy_obj.get_accessible) is not None
+    assert property(ippy_obj.get_not_accessible) is not None
+    assert property(ippy_obj.get_results) is not None
 
 
 def test_empty_result():
-    ippt = ippy.Ippy()
-    ippt.set_config(False, 'test', 10)
-    ippt.set_file(file='ip_list.csv')
-    ippt.run()
+    ippy_obj = ippy.Ippy()
+    ippy_obj.set_config(False, 'test', 10)
+    ippy_obj.set_file(file='ip_list.csv')
+    ippy_obj.run()
     with pytest.raises(ValueError):
-        ippt.result()
+        ippy_obj.result()
 
 
 def test_json_result():
-    ippt = ippy.Ippy()
-    ippt.set_config(False, 'json', 10)
-    result = ippt.result()
+    ippy_obj = ippy.Ippy()
+    ippy_obj.set_config(False, 'json', 10)
+    result = ippy_obj.result()
     assert json.loads(result) is not None
 
 
 def test_csv_result():
-    ippt = ippy.Ippy()
-    ippt.set_config(False, 'csv', 10)
-    ippt.set_file(file='ip_list.csv')
-    ippt.run()
-    result = ippt.result()
+    ippy_obj = ippy.Ippy()
+    ippy_obj.set_config(False, 'csv', 10)
+    ippy_obj.set_file(file='ip_list.csv')
+    ippy_obj.run()
+    result = ippy_obj.result()
     my_result = StringIO(result)
     my_reader = reader(my_result, delimiter=str(','))
     csv_result = ''
