@@ -26,7 +26,7 @@ test_requirements = [
 
 setup(
     name='ippy',
-    version='0.3.6',
+    version='0.3.7',
     description="Parallel testing of IP addresses and domains in python.",
     long_description='''[![PyPI version](https://badge.fury.io/py/ippy.svg)](https://pypi.python.org/pypi/ippy)
 [![Build Status](https://travis-ci.org/shivammathur/IPpy.svg?branch=master)](https://travis-ci.org/shivammathur/IPpy)
