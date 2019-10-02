@@ -26,7 +26,7 @@ test_requirements = [
 
 setup(
     name='ippy',
-    version='0.3.6',
+    version='0.3.7',
     description="Parallel testing of IP addresses and domains in python.",
     long_description='''[![PyPI version](https://badge.fury.io/py/ippy.svg)](https://pypi.python.org/pypi/ippy)
 [![Build Status](https://travis-ci.org/shivammathur/IPpy.svg?branch=master)](https://travis-ci.org/shivammathur/IPpy)
@@ -38,21 +38,21 @@ setup(
 
 <img src="https://shivammathur.com/IPpy.png" align="right" width="250">
 
-# :rocket: IPpy
+# 🚀 IPpy
 Parallel testing of IP addresses and domains in python.
 Reads IP addresses and domains from a CSV file and gives two lists of accessible and inaccessible ones. Refer to [Usage](#memo-usage) to see how to use this.
 
-## :tada: About
+## 🎉 About
 - Compatible with both Python 2 and 3.
 - Testing of IPs and domains is done in parallel.
 - By default there are 4 Workers.
 - All Workers work on an input Queue and a output Queue.
 
-## :ab: Modes
+## 🆎 Modes
 - verbose - if true, ping output will be displayed.
 - output - `json` or `csv`
 
-## :sparkles: Support
+## ✨ Support
 - Windows, Linux and macOS are supported.
 - Supports both IPv4 and IPv6 IPs, and domain names.
 
@@ -63,13 +63,13 @@ Reads IP addresses and domains from a CSV file and gives two lists of accessible
 localhost
 ```
 
-## :zap: Install
+## ⚡️ Install
 
 ```bash
 $ pip install ippy
 ```
 
-## :memo: Usage
+## 📝 Usage
 
 ```python
 # Create IPpy instance
@@ -90,7 +90,7 @@ ippy_obj.run()
 output = ippy_obj.result()
 print(output)
 ```
-## :rotating_light: Tests
+## 🚨 Tests
 To run the tests, first install tox.
 
 ```bash
@@ -103,15 +103,15 @@ then run tox from the project root directory.
 $ tox
 ```
 
-## :scroll: License
+## 📜 License
 
 The scripts and documentation in this project are released under the [MIT License](LICENSE). This project has multiple [dependencies](https://github.com/shivammathur/ippy/network/dependencies) and their licenses can be found in their respective repositories.
 
-## :+1: Contributions
+## 👍 Contributions
 
 Contributions are welcome! See [Contributor's Guide](.github/CONTRIBUTING.md).
 
-## :sparkling_heart: Support this project
+## 💖 Support this project
 
 - Please star the project and share it among your developer friends.
 - Consider supporting on <a href="https://www.patreon.com/shivammathur"><img alt="Support me on Patreon" src="https://shivammathur.com/badges/patreon.svg"></a> and <a href="https://www.paypal.me/shivammathur"><img alt="Support me on Paypal" src="https://shivammathur.com/badges/paypal.svg"></a>.
