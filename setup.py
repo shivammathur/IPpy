@@ -30,30 +30,32 @@ setup(
     description="Parallel testing of IP addresses and domains in python.",
     long_description='''[![PyPI version](https://badge.fury.io/py/ippy.svg)](https://pypi.python.org/pypi/ippy)
 [![Build Status](https://travis-ci.org/shivammathur/IPpy.svg?branch=master)](https://travis-ci.org/shivammathur/IPpy)
-[![Code Climate](https://codeclimate.com/github/shivammathur/IPpy/badges/gpa.svg)](https://codeclimate.com/github/shivammathur/IPpy)
-[![Coverage Status](https://coveralls.io/repos/github/shivammathur/IPpy/badge.svg?branch=master)](https://coveralls.io/github/shivammathur/IPpy?branch=master)
 [![codecov](https://codecov.io/gh/shivammathur/IPpy/branch/master/graph/badge.svg)](https://codecov.io/gh/shivammathur/IPpy)
 [![License](https://img.shields.io/badge/license-MIT-428f7e.svg)](https://pypi.python.org/pypi/ippy)
+[![Support me on Patreon](https://shivammathur.com/badges/patreon.svg)](https://www.patreon.com/shivammathur)
+[![Support me on Paypal](https://shivammathur.com/badges/paypal.svg)](https://www.paypal.me/shivammathur)
+[![Contact me on Codementor](https://cdn.codementor.io/badges/contact_me_github.svg)](https://www.codementor.io/shivammathur?utm_source=github&utm_medium=button&utm_term=shivammathur&utm_campaign=github)
 
 <img src="https://shivammathur.com/IPpy.png" align="right" width="250">
 
-# IPpy
+# :rocket: IPpy
 Parallel testing of IP addresses and domains in python.
-Reads IP addresses and domains from a CSV file and gives two lists of accessible and inaccessible ones.
+Reads IP addresses and domains from a CSV file and gives two lists of accessible and inaccessible ones. Refer to [Usage](#memo-usage) to see how to use this.
 
-## About
+## :tada: About
 - Compatible with both Python 2 and 3.
 - Testing of IPs and domains is done in parallel.
 - By default there are 4 Workers.
 - All Workers work on an input Queue and a output Queue.
 
-## Modes
+## :ab: Modes
 - verbose - if true, ping output will be displayed.
 - output - `json` or `csv`
 
-## Support
+## :sparkles: Support
 - Windows, Linux and macOS are supported.
 - Supports both IPv4 and IPv6 IPs, and domain names.
+
 ```csv
 # Examples
 127.0.0.1
@@ -61,12 +63,14 @@ Reads IP addresses and domains from a CSV file and gives two lists of accessible
 localhost
 ```
 
-## Install
-```
+## :zap: Install
+
+```bash
 $ pip install ippy
 ```
 
-## Usage
+## :memo: Usage
+
 ```python
 # Create IPpy instance
 ippy_obj = ippy.Ippy()
@@ -86,16 +90,32 @@ ippy_obj.run()
 output = ippy_obj.result()
 print(output)
 ```
-## Tests
+## :rotating_light: Tests
 To run the tests, first install tox.
-```
+
+```bash
 $ pip install tox
 ```
 
 then run tox from the project root directory.
-```
+
+```bash
 $ tox
 ```
+
+## :scroll: License
+
+The scripts and documentation in this project are released under the [MIT License](LICENSE). This project has multiple [dependencies](https://github.com/shivammathur/ippy/network/dependencies) and their licenses can be found in their respective repositories.
+
+## :+1: Contributions
+
+Contributions are welcome! See [Contributor's Guide](.github/CONTRIBUTING.md).
+
+## :sparkling_heart: Support this project
+
+- Please star the project and share it among your developer friends.
+- Consider supporting on <a href="https://www.patreon.com/shivammathur"><img alt="Support me on Patreon" src="https://shivammathur.com/badges/patreon.svg"></a> and <a href="https://www.paypal.me/shivammathur"><img alt="Support me on Paypal" src="https://shivammathur.com/badges/paypal.svg"></a>.
+
 ''',
     long_description_content_type='text/markdown',
     author="Shivam Mathur",
