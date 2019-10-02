@@ -2,6 +2,6 @@
 
 __author__ = """Shivam Mathur"""
 __email__ = 'shivam_jpr@hotmail.com'
-__version__ = '0.3.5'
+__version__ = '0.3.6'
 
 from .ippy import Ippy
