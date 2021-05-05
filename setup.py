@@ -5,7 +5,7 @@ from setuptools import setup
 from os import path
 
 requirements = [
-    'pingparsing==0.18.2',
+    'pingparsing==1.3.1',
     'future>=0.16.0'
 ]
 
