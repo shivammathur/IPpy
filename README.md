@@ -83,5 +83,5 @@ Contributions are welcome! See [Contributor's Guide](.github/CONTRIBUTING.md).
 
 ## :sparkling_heart: Support this project
 
-- Please star the project and share it among your developer friends.
-- Consider supporting on <a href="https://www.patreon.com/shivammathur"><img alt="Support me on Patreon" src="https://shivammathur.com/badges/patreon.svg"></a> and <a href="https://www.paypal.me/shivammathur"><img alt="Support me on Paypal" src="https://shivammathur.com/badges/paypal.svg"></a>.
+- Please star the project and share it.
+- Consider supporting the project using [GitHub sponsors](https://github.com/sponsors/shivammathur).
