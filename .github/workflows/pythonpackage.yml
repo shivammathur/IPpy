@@ -6,12 +6,12 @@ jobs:
       max-parallel: 12
       matrix:
         platform: [ubuntu-latest, macOS-latest, windows-latest]
-        python-version: [27, 35, 36, 37]
+        python-version: [2.7, 3.5, 3.6, 3.7]
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v1
     - name: Set up Python ${{ matrix.python-version }}
-      uses: shivammathur/setup-python@master
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}    
     - name: Install iputils-ping on Linux
@@ -24,4 +24,6 @@ jobs:
     - name: Test with tox
       env: 
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      run: tox -e py${{ matrix.python-version }}
+      run: |
+        python_version=py${{ matrix.python-version }}
+        tox -e py${python_version/./}
